@@ -1,0 +1,53 @@
+"Modify default vim to show line numbers
+set number
+
+"Modify default vim to show status
+set laststatus=2
+
+"Modify default to show matching bracket
+"set showmatch
+
+"Modify default vim to set mouse usage
+set mouse=a
+
+"Modify default vim to set textwrap, line break and no list
+"set wrap
+"set linebreak
+"set nolist
+
+"Try to fix the indenting issue
+set  autoindent
+filetype indent on
+set smartindent
+set cindent
+autocmd BufRead,BufWritePre *.sh normal gg=G
+
+"New addition
+set nocompatible
+syntax on
+syntax enable
+silent! runtime macros/matchit.vim
+set autochdir
+set backspace=indent,eol,start
+set foldenable
+set hidden
+set incsearch
+set ruler
+set switchbuf=useopen,usetab
+set tags=./tags,tags;/
+set wildmenu
+nnoremap gb :buffers<CR>:sb<Space>
+
+"Stop EndOfLine
+set binary noeol
+
+"Customise tabs length
+set tabstop=8 shiftwidth=8
+
+"tpope/vim-pathogen plugin manager
+execute pathogen#infect()
+
+"junegunn/package manager
+call plug#begin()
+Plug 'Konfekt/vim-wsl-copy-paste'
+call plug#end()
